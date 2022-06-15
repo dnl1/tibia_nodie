@@ -74,10 +74,11 @@ wait_logged_in() {
     return false
 }
 
-Global status_box_x_beg := 851
-Global status_box_x_end := 897
-Global status_box_y_beg := 9
-Global status_box_y_end := 16 ;first layer only
+;If it is not working use window spy to get new coordinates of tibia's status condition bar
+Global status_box_x_beg := 1750
+Global status_box_x_end := 1858
+Global status_box_y_beg := 264
+Global status_box_y_end := 272 ;first layer only
 
 has_status_condition(byref status_condition) {
 
@@ -86,4 +87,18 @@ has_status_condition(byref status_condition) {
     status_condition_image := folder . status_condition . extension
 
     return find_image_in(status_condition_image, status_box_x_beg, status_box_y_beg, status_box_x_end, status_box_y_end)
+}
+
+;If it is not working use window spy to get new coordinates of tibia's status condition bar
+Global screen_box_x_beg := 177
+Global screen_box_x_end := 1378
+Global screen_box_y_beg := 58
+Global screen_box_y_end := 797 ;main screen
+has_on_screen(byref item) {
+
+    folder := "img/"
+    extension := ".png"
+    status_condition_image := folder . item . extension
+
+    return find_image_in(status_condition_image, screen_box_x_beg, screen_box_y_beg, screen_box_x_end, screen_box_y_end)
 }

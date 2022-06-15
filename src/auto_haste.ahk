@@ -3,7 +3,8 @@
 SetBatchLines, 7ms
 tool_tip_id := 4
 
-Global vocation := "MS"
+Global vocation := ini_read("config.ini", "account", "vocation")
+
 
 ;Keys
 Global haste := ini_read("healer_config.ini", "tibia_hotkeys", "auto_haste_spell")
@@ -72,27 +73,6 @@ TRY_HASTE:
     SetTimer, TRY_HASTE, % -auto_haste_check_interval
     return
 
-old_heal_slow() {
-
-    if !has_status_condition("slowed")
-        return false
-
-    if !haste_exhausted
-    {
-
-        cast_haste()
-        return true
-    }
-    else if !heal_exhausted
-    {
-
-        cast_heal()
-        return true
-    }
-
-    return false
-}
-
 heal_slow_auto_haste() {
     ; auto heals slow and maintains haste trough checking if character has the haste condition
 
@@ -115,8 +95,7 @@ heal_slow_auto_haste() {
     return false
 }
 
-keep_hasted() {
-
+keep_hasted() {    
     if !(auto_haste and !haste_exhausted and !has_status_condition("haste") and has_status_condition("logout_block"))
         return false
 

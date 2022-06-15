@@ -28,7 +28,7 @@ mwt_UnHotkey = #u  ; Win+U
 
 ; If you prefer to have the tray menu empty of all the standard items,
 ; such as Help and Pause, use N.  Otherwise, use Y:
-mwt_StandardMenu = N
+mwt_StandardMenu = Y
 
 ; These next few performance settings help to keep the action within the
 ; #HotkeyModifierTimeout period, and thus avoid the need to release and

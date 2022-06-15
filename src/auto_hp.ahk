@@ -1,7 +1,7 @@
 #include header.ahk
 
 tool_tip_id := 3
-Global vocation := "MS"
+Global vocation := ini_read("config.ini", "account", "vocation")
 
 ;keys
 Global exura := ini_read("healer_config.ini", "tibia_hotkeys", "exura")
