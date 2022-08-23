@@ -226,7 +226,6 @@ is_suspended() {
 }
 
 is_paused() {
-
     return A_IsPaused
 }
 

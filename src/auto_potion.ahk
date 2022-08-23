@@ -34,7 +34,7 @@ Global hp_bar_x_end := 837
 Global hp_bar_y := 8
 
 Global mp_bar_x_beg := 1554
-Global mp_bar_x_end := 907
+Global mp_bar_x_end := 880
 Global mp_bar_y := 8
 
 ;ahk hotkeys

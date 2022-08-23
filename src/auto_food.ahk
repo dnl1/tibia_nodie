@@ -6,7 +6,10 @@ tool_tip_id := 8
 ;Keys
 Global auto_food_hk := ini_read("config.ini", "tibia_hotkeys", "auto_food")
 
+Global general_suspend_hk := ini_read("config.ini", "control", "suspend")
+
 Hotkey, IfWinActive, %main_char_window%
+Hotkey, %general_suspend_hk%, SUSP
 
 SetTimer, TRY_FOOD, -3000
 return
@@ -37,7 +40,16 @@ TRY_FOOD:
 do_food() {
     if has_status_condition("hungry")
     {
-       send(auto_food_hk)
+        tries := 10
+        i := 0
+
+        while (i < tries)
+        {
+            send(auto_food_hk)
+
+            i := i + 1
+            sleep(random_k(1, 2))
+        }  
        return true
     }
 

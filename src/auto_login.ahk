@@ -8,7 +8,6 @@ first_log_in := false
 Global acc_name := ini_read("account.ini", "accounts", "acc_name")
 Global pass := ini_read("account.ini", "accounts", "pass")
 
-
 run_tibia()
 SetTimer, AUTO_LOG_IN, -1000
 
@@ -25,12 +24,12 @@ AUTO_LOG_IN:
 
     SetTimer, AUTO_LOG_IN, % random_k(120, 240)
 
-    if (((A_Hour = 04) AND (A_Min >= 55) AND (A_Min <= 59)) OR ((A_Hour = 05) AND (A_Min >= 00) AND (A_Min <= 05)))
-    {
+    ; if (((A_Hour = 04) AND (A_Min >= 55) AND (A_Min <= 59)) OR ((A_Hour = 05) AND (A_Min >= 00) AND (A_Min <= 05)))
+    ; {
 
-        first_log_in := True
-        return
-    }
+    ;     first_log_in := True
+    ;     return
+    ; }
 
     if !window_exist("Tibia")
         return
@@ -45,19 +44,19 @@ AUTO_LOG_IN:
     if !window_active("Tibia")
         return
 
-    if first_log_in
-    {
-        train_characters()
-        first_log_in := False
-    }
+    ; if first_log_in
+    ; {
+    ;     train_characters()
+    ;     first_log_in := False
+    ; }
 
     if !connected_to_internet()
         return
 
     log_in_character(main_char_id)
 
-    if window_active(main_char_window)
-        window_minimize(main_char_window)
+    ;if window_active(main_char_window)
+    ;    window_minimize(main_char_window)
 
     return
 
@@ -230,7 +229,8 @@ wait_char_selection_screen() {
     while (i < tries)
     {
 
-        if find_image("images/select_character.png")
+        if find_image("img/select_character.png")
+            tray_tip("Train Character", "Select character true", 2000, 3)
             return True
 
         i := i + 1
@@ -259,6 +259,5 @@ wait_log_in_screen() {
 }
 
 is_log_in_screen() {
-
-    return find_image("images/log_in.png")
+    return find_image("img/log_in.png")
 }

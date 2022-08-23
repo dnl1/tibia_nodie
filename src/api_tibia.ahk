@@ -10,7 +10,7 @@ run_tibia() {
     if !window_exist("Tibia")
     {
         SetTitleMatchMode, 3
-        RunWait, Tibia.exe, C:\Users\user\AppData\Local\Tibia\
+        RunWait, safebra.exe, C:\Safebra\Safebra 04-03\bin\
         sleep(random_k(9, 12))
     }
 
@@ -102,3 +102,23 @@ has_on_screen(byref item) {
 
     return find_image_in(status_condition_image, screen_box_x_beg, screen_box_y_beg, screen_box_x_end, screen_box_y_end)
 }
+
+has_on_screen_spec(byref item, byref x_beg, byref y_beg, byref x_end, byref y_end) {
+
+    folder := "img/"
+    extension := ".png"
+    status_condition_image := folder . item . extension
+
+    return find_image_in(status_condition_image, x_beg, y_beg, x_end, y_end)
+}
+
+
+find_on_screen(byref item, byref found_x = 0, byref found_y = 0) {
+
+    folder := "img/"
+    extension := ".png"
+    status_condition_image := folder . item . extension
+
+    return find_image_in(status_condition_image, 0, 0, A_ScreenWidth, A_ScreenHeight, found_x, found_y)
+}
+

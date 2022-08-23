@@ -36,8 +36,10 @@ Global heal_exhausted := false
 ;ahk hotkeys
 Global auto_haste_suspend_hk := ini_read("healer_config.ini", "hotkeys", "toggle_auto_haste_on_off")
 
+Global general_suspend_hk := ini_read("config.ini", "control", "suspend")
 
 Hotkey, IfWinActive, %main_char_window%
+;Hotkey, %general_suspend_hk%, SUSP
 Hotkey, %auto_haste_suspend_hk%, SUSP
 
 SetTimer, TRY_HASTE, -3000

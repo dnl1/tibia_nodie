@@ -36,9 +36,11 @@ Global max_reaction_time := 75
 
 ;ahk hotkeys
 Global auto_hp_suspend_hk := ini_read("healer_config.ini", "hotkeys", "toggle_auto_heal_spell_on_off")
+Global general_suspend_hk := ini_read("config.ini", "control", "suspend")
 
 
 Hotkey, IfWinActive, %main_char_window%
+Hotkey, %general_suspend_hk%, SUSP
 Hotkey, %auto_hp_suspend_hk%, SUSP
 
 SetTimer, TRY_HEAL, -3000

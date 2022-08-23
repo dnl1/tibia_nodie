@@ -3,7 +3,7 @@
 tool_tip_id := 9
 
 ;keys
-auto_use_rune_hk := ini_read("config.ini", "tibia_hotkeys", "auto_use_rune")
+auto_use_rune_hk := ini_read("config.ini", "tibia_hotkeys", "use_rune")
 
 Hotkey, IfWinActive, %main_char_window%
 
@@ -36,6 +36,5 @@ use_rune() {
         return true
     }
     
-    Send, {F9}
     return false
 }
