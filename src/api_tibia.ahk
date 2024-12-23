@@ -10,7 +10,7 @@ run_tibia() {
     if !window_exist("Tibia")
     {
         SetTitleMatchMode, 3
-        RunWait, safebra.exe, C:\Safebra\Safebra 04-03\bin\
+        RunWait, Tibia.exe, C:\Users\danil\AppData\Local\Tibia\
         sleep(random_k(9, 12))
     }
 
@@ -78,7 +78,7 @@ wait_logged_in() {
 Global status_box_x_beg := 1750
 Global status_box_x_end := 1858
 Global status_box_y_beg := 264
-Global status_box_y_end := 272 ;first layer only
+Global status_box_y_end := 300 ;first layer only
 
 has_status_condition(byref status_condition) {
 

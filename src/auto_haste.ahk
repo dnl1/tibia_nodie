@@ -119,5 +119,7 @@ cast_heal() {
     heal_exhausted := true
     SetTimer, REMOVE_HEAL_EXHAUSTION, % -heal_cooldown
     sleep(random(min_reaction_time, max_reaction_time))
-    send(heal)
+    
+    if(has_status_condition("slowed"))
+        send(heal)
 }

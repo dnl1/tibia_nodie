@@ -10,10 +10,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; Run, npc_shortcuts.ahk, src, Min
 Run, auto_hp.ahk, src, Min
 Run, auto_potion.ahk, src, Min
-Run, auto_food.ahk, src, Min
-Run, auto_login.ahk, src, Min
+Run, auto_food.ahk, src, Min    
+; Run, auto_login.ahk, src, Min
 ; Run, auto_use_rune.ahk, src, Min
-; Run, auto_haste.ahk, src, Min
+Run, auto_haste.ahk, src, Min
 
 OnExit("ExitFunc")
 

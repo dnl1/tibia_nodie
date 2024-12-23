@@ -75,7 +75,7 @@ random_array_element(ByRef array) {
 }
 
 control_send_random_key_active_window(byRef key_array, ByRef window) {
-
+    
     if window_active(window)
         return control_send_random_key_window(key_array, window)
 }
